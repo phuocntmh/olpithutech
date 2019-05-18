@@ -5,26 +5,24 @@ frm.submit(function (e) {
         e.preventDefault();
         alert("Vui lòng kiểm tra biểu mẫu. Error: Please check the Recaptcha.");
     }
-    else {
-        $.ajax({
-            type: 'GET',
-            beforeSend: function(){
-                $("input").prop('disabled', true);
-                $("#submit-form").attr("disabled", true);
-            },
-            url: 'https://script.google.com/macros/s/AKfycbxBwosreW7JvP2F0kMnIpmSgNT4Pp7yPZdzBqg1cH-P6vpG3gI/exec',
-            data: frm.serialize(),
-            success: function (data) {
-                $('#SuccessModal').modal('show');
-            },
-            error: function (data) {
-                $('#FailModal').modal('show');
-            },
-            complete: function(){
-                $("input").prop('disabled', false);
-                $("#submit-form").attr("disabled", false);
-                $('#register-form')[0].reset();
-            }
-        });
-    }
+    $.ajax({
+        type: 'GET',
+        beforeSend: function(){
+            $("input").prop('disabled', true);
+            $("#submit-form").attr("disabled", true);
+        },
+        url: 'https://script.google.com/macros/s/AKfycbxBwosreW7JvP2F0kMnIpmSgNT4Pp7yPZdzBqg1cH-P6vpG3gI/exec',
+        data: frm.serialize(),
+        success: function (data) {
+            $('#SuccessModal').modal('show');
+        },
+        error: function (data) {
+            $('#FailModal').modal('show');
+        },
+        complete: function(){
+            $("input").prop('disabled', false);
+            $("#submit-form").attr("disabled", false);
+            $('#register-form')[0].reset();
+        }
+    });
 });
