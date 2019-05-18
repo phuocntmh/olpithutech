@@ -86,10 +86,10 @@
                         <option value="Sinh hoạt đội tuyển Olympic Tin học">Sinh hoạt đội tuyển Olympic Tin học</option>
                       </select>
                   </div>
-                  <div class="g-recaptcha" data-sitekey="6Le4M6QUAAAAAKOs-qGGqb4QgvI512RpT4tvPXXk"></div>
+                  <div class="g-recaptcha" data-sitekey="6Le4M6QUAAAAAKOs-qGGqb4QgvI512RpT4tvPXXk" data-callback="enableBtn"></div>
 								  <small id="emailHelp" class="form-text text-muted">Thông tin cá nhân của bạn sẽ không được chia sẻ.</small>
 								 <div id="btnsubmit">
-								 	<button type="submit" id="submit-form" class="btn btn-info"><i class="fas fa-spinner fa-pulse"></i> Gửi yêu cầu của bạn</button>
+								 	<button type="submit" id="submit-form" class="btn btn-info" disabled><i class="fas fa-spinner fa-pulse"></i> Gửi yêu cầu của bạn</button>
 								 </div>
 							</form>
   						</div> 
@@ -152,6 +152,11 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
   <script src='https://www.google.com/recaptcha/api.js'></script>
+  <script>
+    function enableBtn(){
+      document.getElementById("submit-form").attr('disabled',false);
+    }
+  </script>
   <script>
     var countDownDate = new Date("May 22, 2019 23:59:59").getTime();
     var x = setInterval(function() 
